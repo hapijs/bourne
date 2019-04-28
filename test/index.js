@@ -120,6 +120,9 @@ describe('Bourne', () => {
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005f_proto__": { "x": 7 } }')).to.throw(SyntaxError);
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "_\\u005fp\\u0072oto__": { "x": 7 } }')).to.throw(SyntaxError);
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005f\\u005f\\u0070\\u0072\\u006f\\u0074\\u006f\\u005f\\u005f": { "x": 7 } }')).to.throw(SyntaxError);
+            expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005F_proto__": { "x": 7 } }')).to.throw(SyntaxError);
+            expect(() => Bourne.parse('{ "a": 5, "b": 6, "_\\u005Fp\\u0072oto__": { "x": 7 } }')).to.throw(SyntaxError);
+            expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005F\\u005F\\u0070\\u0072\\u006F\\u0074\\u006F\\u005F\\u005F": { "x": 7 } }')).to.throw(SyntaxError);
             done();
         });
     });
@@ -152,6 +155,27 @@ describe('Bourne', () => {
 
             Bourne.scan(obj, { protoAction: 'remove' });
             expect(obj).to.equal({ a: 5, b: 6, hasOwnProperty: 'text' });
+            done();
+        });
+    });
+
+    describe('safeParse()', () => {
+
+        it('parses object string', (done) => {
+
+            expect(Bourne.safeParse('{"a": 5, "b": 6}')).to.equal({ a: 5, b: 6 });
+            done();
+        });
+
+        it('returns null on proto object string', (done) => {
+
+            expect(Bourne.safeParse('{ "a": 5, "b": 6, "__proto__": { "x": 7 } }')).to.be.null();
+            done();
+        });
+
+        it('returns null on invalid object string', (done) => {
+
+            expect(Bourne.safeParse('{"a": 5, "b": 6')).to.be.null();
             done();
         });
     });
