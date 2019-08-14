@@ -4,7 +4,7 @@
 
 `JSON.parse()` drop-in replacement with prototype poisoning protection
 
-[![Build Status](https://travis-ci.org/hapijs/bourne.svg)](https://travis-ci.org/hapijs/bourne)
+[![Build Status](https://travis-ci.org/hapijs/bourne.svg)](https://travis-ci.org/hapijs/bourne) [![Greenkeeper badge](https://badges.greenkeeper.io/hapijs/bourne.svg)](https://greenkeeper.io/)
 
 ## Introduction
 
