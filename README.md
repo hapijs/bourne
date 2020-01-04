@@ -12,5 +12,6 @@
 
 - [Documentation and API](https://hapi.dev/family/bourne/)
 - [Version status](https://hapi.dev/resources/status/#bourne) (builds, dependencies, node versions, licenses, eol)
+- [Changelog](https://hapi.dev/family/bourne/changelog/)
 - [Project policies](https://hapi.dev/policies/)
 - [Free and commercial support options](https://hapi.dev/support/)
