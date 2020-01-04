@@ -4,6 +4,9 @@
   "version": "1.3.2",
   "repository": "git://github.com/hapijs/bourne",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "JSON",
     "parse",
@@ -12,8 +15,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@hapi/code": "6.x.x",
-    "@hapi/lab": "20.x.x",
+    "@hapi/code": "8.x.x",
+    "@hapi/lab": "22.x.x",
     "benchmark": "2.x.x"
   },
   "scripts": {
