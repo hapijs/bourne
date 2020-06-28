@@ -3,6 +3,9 @@
   "description": "JSON parse with prototype poisoning protection",
   "version": "1.3.2",
   "repository": "git://github.com/hapijs/bourne",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "main": "lib/index.js",
   "keywords": [
     "JSON",
