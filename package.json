@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "@hapi/code": "8.x.x",
-    "@hapi/lab": "22.x.x",
+    "@hapi/lab": "24.x.x",
     "benchmark": "2.x.x"
   },
   "scripts": {
