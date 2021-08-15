@@ -13,9 +13,15 @@
     "safe",
     "prototype"
   ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:@hapi/module"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
     "@hapi/code": "8.x.x",
+    "@hapi/eslint-plugin": "*",
     "@hapi/lab": "24.x.x",
     "benchmark": "2.x.x"
   },
