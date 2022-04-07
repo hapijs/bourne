@@ -7,6 +7,7 @@ const { expect } = Lab.types;
 
 expect.type<unknown>(Bourne.parse('{}'));
 expect.type<unknown>(Bourne.parse('{}', () => {}));
+expect.type<unknown>(Bourne.parse('{}', (key, value) => ({ key, value })));
 expect.type<unknown>(Bourne.parse('{}', {}));
 expect.type<unknown>(Bourne.parse('{}', { protoAction: 'error' }));
 expect.type<unknown>(Bourne.parse('{}', () => {}, { protoAction: 'error' }));
