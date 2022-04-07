@@ -42,3 +42,7 @@ Scans a given object for prototype properties where:
     - `protoAction` - optional string with one of:
         - `'error'` - throw a `SyntaxError` when a `__proto__` key is found. This is the default value.
         - `'remove'` - deletes any `__proto__` keys from the input `obj`.
+
+### `Bourne.safeParse(text, [reviver])`
+
+Same as `Bourne.parse()` except that it returns `null` instead of throwing a `SyntaxError` when a `__proto__` key is found.
