@@ -4,6 +4,7 @@
   "version": "2.0.0",
   "repository": "git://github.com/hapijs/bourne",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
@@ -18,15 +19,15 @@
       "plugin:@hapi/module"
     ]
   },
-  "dependencies": {},
   "devDependencies": {
     "@hapi/code": "8.x.x",
     "@hapi/eslint-plugin": "*",
     "@hapi/lab": "24.x.x",
-    "benchmark": "2.x.x"
+    "benchmark": "2.x.x",
+    "typescript": "^4.6.3"
   },
   "scripts": {
-    "test": "lab -a @hapi/code -t 100 -L",
+    "test": "lab -a @hapi/code -t 100 -L -Y",
     "test-cov-html": "lab -a @hapi/code -r html -o coverage.html"
   },
   "license": "BSD-3-Clause"
