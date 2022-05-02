@@ -23,6 +23,7 @@
     "@hapi/code": "8.x.x",
     "@hapi/eslint-plugin": "*",
     "@hapi/lab": "24.x.x",
+    "@types/node": "^17.0.31",
     "benchmark": "2.x.x",
     "typescript": "^4.6.3"
   },
