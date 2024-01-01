@@ -1,5 +1,5 @@
 {
-  "name": "@commercial/bourne",
+  "name": "bourne",
   "description": "JSON parse with prototype poisoning protection",
   "version": "1.3.2",
   "repository": "git://github.com/hapijs/bourne",
