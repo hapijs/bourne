@@ -14,11 +14,6 @@
     "safe",
     "prototype"
   ],
-  "eslintConfig": {
-    "extends": [
-      "plugin:@hapi/module"
-    ]
-  },
   "devDependencies": {
     "@hapi/code": "^9.0.3",
     "@hapi/eslint-plugin": "^7.0.0",
