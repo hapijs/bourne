@@ -1,31 +1,38 @@
-import * as Bourne from '..';
-import * as Lab from '@hapi/lab';
+import { expectTypeOf } from 'vitest';
 
-const { expect } = Lab.types;
+import * as Bourne from '../lib/index.js';
 
-// parse
+// parse — call signatures compile
 
-expect.type<unknown>(Bourne.parse('{}'));
-expect.type<unknown>(Bourne.parse('{}', () => {}));
-expect.type<unknown>(Bourne.parse('{}', (key, value) => ({ key, value })));
-expect.type<unknown>(Bourne.parse('{}', {}));
-expect.type<unknown>(Bourne.parse('{}', { protoAction: 'error' }));
-expect.type<unknown>(Bourne.parse('{}', () => {}, { protoAction: 'error' }));
+expectTypeOf(Bourne.parse).toBeFunction();
+expectTypeOf(Bourne.parse('{}')).toBeAny();
+expectTypeOf(Bourne.parse('{}', () => {})).toBeAny();
+expectTypeOf(Bourne.parse('{}', (key, value) => ({ key, value }))).toBeAny();
+expectTypeOf(Bourne.parse('{}', {})).toBeAny();
+expectTypeOf(Bourne.parse('{}', { protoAction: 'error' })).toBeAny();
+expectTypeOf(Bourne.parse('{}', () => {}, { protoAction: 'error' })).toBeAny();
 
-expect.error(Bourne.parse({}));
-expect.error(Bourne.parse('{}', ''));
-expect.error(Bourne.parse('{}', { protAct: 'error' }));
+// parse — invalid calls rejected
 
-// scan
+// @ts-expect-error first arg must be string
+Bourne.parse({});
+// @ts-expect-error reviver must be function or options object
+Bourne.parse('{}', '');
+// @ts-expect-error invalid option key
+Bourne.parse('{}', { protAct: 'error' });
 
-expect.type<void>(Bourne.scan({}));
-expect.type<void>(Bourne.scan({}, {}));
-expect.type<void>(Bourne.scan({}, { protoAction: 'remove' }));
+// scan — returns void, accepts options
 
-// safeParse
+expectTypeOf(Bourne.scan).toBeFunction();
+expectTypeOf(Bourne.scan({})).toBeVoid();
+expectTypeOf(Bourne.scan({}, {})).toBeVoid();
+expectTypeOf(Bourne.scan({}, { protoAction: 'remove' })).toBeVoid();
 
-expect.type<unknown | null>(Bourne.safeParse('{}'));
-expect.type<unknown | null>(Bourne.safeParse('{}', () => {}));
+// safeParse — call signatures compile, invalid calls rejected
 
-expect.error(Bourne.safeParse({}));
-expect.error(Bourne.safeParse('{}', ''));
+expectTypeOf(Bourne.safeParse).toBeFunction();
+
+// @ts-expect-error first arg must be string
+Bourne.safeParse({});
+// @ts-expect-error reviver must be function
+Bourne.safeParse('{}', '');

@@ -2,6 +2,7 @@
 **/package-lock.json
 
 coverage.*
+coverage/
 
 **/.DS_Store
 **/._*
