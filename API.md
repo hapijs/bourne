@@ -26,6 +26,7 @@ iterated on and values copied, the `__proto__` property leaks and becomes the ob
 ### `Bourne.parse(text, [reviver], [options])`
 
 Parses a given JSON-formatted text into an object where:
+
 - `text` - the JSON text string.
 - `reviver` - the `JSON.parse()` optional `reviver` argument.
 - `options` - optional configuration object where:
@@ -37,6 +38,7 @@ Parses a given JSON-formatted text into an object where:
 ### `Bourne.scan(obj, [options])`
 
 Scans a given object for prototype properties where:
+
 - `obj` - the object being scanned.
 - `options` - optional configuration object where:
     - `protoAction` - optional string with one of:

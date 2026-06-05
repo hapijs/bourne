@@ -35,23 +35,23 @@ describe('Bourne', () => {
 
             expect(
                 Bourne.parse('{ "a": 5, "b": 6, "__proto__": { "x": 7 } }', reviver, {
-                    protoAction: 'remove'
-                })
+                    protoAction: 'remove',
+                }),
             ).toEqual({ a: 6, b: 7 });
         });
 
         it('sanitizes object string (options)', () => {
             expect(Bourne.parse('{ "a": 5, "b": 6, "__proto__": { "x": 7 } }', { protoAction: 'remove' })).toEqual({
                 a: 5,
-                b: 6
+                b: 6,
             });
         });
 
         it('sanitizes object string (null, options)', () => {
             expect(
                 Bourne.parse('{ "a": 5, "b": 6, "__proto__": { "x": 7 } }', null, {
-                    protoAction: 'remove'
-                })
+                    protoAction: 'remove',
+                }),
             ).toEqual({ a: 5, b: 6 });
         });
 
@@ -61,7 +61,7 @@ describe('Bourne', () => {
             expect(Bourne.parse(text, { protoAction: 'remove' })).toEqual({
                 a: 5,
                 b: 6,
-                c: { d: 0, e: 'text', f: { g: 2 } }
+                c: { d: 0, e: 'text', f: { g: 2 } },
             });
         });
 
@@ -87,7 +87,7 @@ describe('Bourne', () => {
 
         it('errors on proto property (explicit options)', () => {
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "__proto__": { "x": 7 } }', { protoAction: 'error' })).toThrow(
-                SyntaxError
+                SyntaxError,
             );
         });
 
@@ -96,15 +96,15 @@ describe('Bourne', () => {
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "_\\u005fp\\u0072oto__": { "x": 7 } }')).toThrow(SyntaxError);
             expect(() =>
                 Bourne.parse(
-                    '{ "a": 5, "b": 6, "\\u005f\\u005f\\u0070\\u0072\\u006f\\u0074\\u006f\\u005f\\u005f": { "x": 7 } }'
-                )
+                    '{ "a": 5, "b": 6, "\\u005f\\u005f\\u0070\\u0072\\u006f\\u0074\\u006f\\u005f\\u005f": { "x": 7 } }',
+                ),
             ).toThrow(SyntaxError);
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005F_proto__": { "x": 7 } }')).toThrow(SyntaxError);
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "_\\u005Fp\\u0072oto__": { "x": 7 } }')).toThrow(SyntaxError);
             expect(() =>
                 Bourne.parse(
-                    '{ "a": 5, "b": 6, "\\u005F\\u005F\\u0070\\u0072\\u006F\\u0074\\u006F\\u005F\\u005F": { "x": 7 } }'
-                )
+                    '{ "a": 5, "b": 6, "\\u005F\\u005F\\u0070\\u0072\\u006F\\u0074\\u006F\\u005F\\u005F": { "x": 7 } }',
+                ),
             ).toThrow(SyntaxError);
         });
     });
