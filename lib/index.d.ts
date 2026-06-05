@@ -13,29 +13,33 @@ interface ParseOptions {
 
 /**
  * Parses a given JSON-formatted text into an object.
- * @param text the JSON text string.
+ *
+ * @param text The JSON text string.
  */
 export function parse(text: string): any;
 
 /**
  * Parses a given JSON-formatted text into an object.
- * @param text the JSON text string.
- * @param reviver the `JSON.parse()` optional `reviver` argument.
+ *
+ * @param text The JSON text string.
+ * @param reviver The `JSON.parse()` optional `reviver` argument.
  */
 export function parse(text: string, reviver: Reviver): any;
 
 /**
  * Parses a given JSON-formatted text into an object.
- * @param text the JSON text string.
- * @param options optional configuration object.
+ *
+ * @param text The JSON text string.
+ * @param options Optional configuration object.
  */
 export function parse(text: string, options: ParseOptions): any;
 
 /**
  * Parses a given JSON-formatted text into an object.
- * @param text the JSON text string.
- * @param reviver the `JSON.parse()` optional `reviver` argument.
- * @param options optional configuration object.
+ *
+ * @param text The JSON text string.
+ * @param reviver The `JSON.parse()` optional `reviver` argument.
+ * @param options Optional configuration object.
  */
 export function parse(text: string, reviver: Reviver, options: ParseOptions): any;
 
@@ -49,14 +53,16 @@ interface ScanOptions {
 
 /**
  * Scans a given object for prototype properties.
- * @param obj the object being scanned.
- * @param options optional configuration object.
+ *
+ * @param obj The object being scanned.
+ * @param options Optional configuration object.
  */
 export function scan(obj: any, options?: ScanOptions): void;
 
 /**
  * Parses a given JSON-formatted text into an object or `null` if an error is found.
- * @param text the JSON text string.
- * @param reviver the `JSON.parse()` optional `reviver` argument.
+ *
+ * @param text The JSON text string.
+ * @param reviver The `JSON.parse()` optional `reviver` argument.
  */
 export function safeParse(text: string, reviver?: Reviver): any | null;

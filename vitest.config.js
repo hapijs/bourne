@@ -6,7 +6,7 @@ export default defineConfig({
         include: ['test/*.js'],
         typecheck: {
             enabled: true,
-            include: ['test/**/*.ts']
+            include: ['test/**/*.ts'],
         },
         coverage: {
             provider: 'v8',
@@ -15,8 +15,8 @@ export default defineConfig({
                 functions: 100,
                 lines: 100,
                 branches: 100,
-                statements: 100
-            }
-        }
-    }
+                statements: 100,
+            },
+        },
+    },
 });

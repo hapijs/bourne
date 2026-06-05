@@ -1,34 +1,25 @@
 {
     "name": "@hapi/bourne",
-    "description": "JSON parse with prototype poisoning protection",
     "version": "3.0.0",
-    "type": "module",
+    "description": "JSON parse with prototype poisoning protection",
+    "keywords": [
+        "JSON",
+        "parse",
+        "prototype",
+        "safe"
+    ],
+    "license": "BSD-3-Clause",
     "repository": "git://github.com/hapijs/bourne",
+    "files": [
+        "lib"
+    ],
+    "type": "module",
+    "types": "lib/index.d.ts",
     "exports": {
         ".": {
             "types": "./lib/index.d.ts",
             "default": "./lib/index.js"
         }
-    },
-    "types": "lib/index.d.ts",
-    "files": [
-        "lib"
-    ],
-    "engines": {
-        "node": ">=22"
-    },
-    "keywords": [
-        "JSON",
-        "parse",
-        "safe",
-        "prototype"
-    ],
-    "devDependencies": {
-        "@vitest/coverage-v8": "^3.2.1",
-        "oxfmt": "^0.43.0",
-        "oxlint": "^1.59.0",
-        "typescript": "^6.0.3",
-        "vitest": "^3.2.1"
     },
     "scripts": {
         "test": "vitest run --coverage",
@@ -38,5 +29,15 @@
         "fmt:fix": "oxfmt",
         "check": "npm run lint && npm run fmt && npm run typecheck && npm test"
     },
-    "license": "BSD-3-Clause"
+    "devDependencies": {
+        "@hapi/oxc-plugin": "^1.0.0",
+        "@vitest/coverage-v8": "^3.2.1",
+        "oxfmt": "^0.53.0",
+        "oxlint": "^1.68.0",
+        "typescript": "^6.0.3",
+        "vitest": "^3.2.1"
+    },
+    "engines": {
+        "node": ">=22"
+    }
 }
