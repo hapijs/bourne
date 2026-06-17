@@ -25,6 +25,7 @@
         "test": "vitest run --coverage",
         "typecheck": "tsc --noEmit",
         "lint": "oxlint",
+        "lint:fix": "oxlint --fix",
         "fmt": "oxfmt --check",
         "fmt:fix": "oxfmt",
         "check": "npm run lint && npm run fmt && npm run typecheck && npm test"
