@@ -9,7 +9,10 @@
         "safe"
     ],
     "license": "BSD-3-Clause",
-    "repository": "git://github.com/hapijs/bourne",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/bourne.git"
+    },
     "files": [
         "lib"
     ],
