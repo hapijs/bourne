@@ -1,15 +1,18 @@
-'use strict';
+import { Bench } from 'tinybench';
 
-const Benchmark = require('benchmark');
-const Bourne = require('..');
+import * as Bourne from '../lib/index.js';
 
 const internals = {
     text: '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } }',
 };
 
-const suite = new Benchmark.Suite();
+internals.reviver = function (key, value) {
+    return value;
+};
 
-suite
+const bench = new Bench();
+
+bench
     .add('JSON.parse', () => {
         JSON.parse(internals.text);
     })
@@ -18,15 +21,8 @@ suite
     })
     .add('reviver', () => {
         JSON.parse(internals.text, internals.reviver);
-    })
-    .on('cycle', (event) => {
-        console.log(String(event.target));
-    })
-    .on('complete', function () {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    .run({ async: true });
+    });
 
-internals.reviver = function (key, value) {
-    return value;
-};
+await bench.run();
+
+console.table(bench.table());
