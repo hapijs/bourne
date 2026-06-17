@@ -1,7 +1,6 @@
-'use strict';
+import { Bench } from 'tinybench';
 
-const Benchmark = require('benchmark');
-const Bourne = require('..');
+import * as Bourne from '../lib/index.js';
 
 const internals = {
     text: '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } }',
@@ -9,9 +8,17 @@ const internals = {
         '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } } }',
 };
 
-const suite = new Benchmark.Suite();
+internals.reviver = function (key, value) {
+    if (key === '__proto__') {
+        throw new Error('kaboom');
+    }
 
-suite
+    return value;
+};
+
+const bench = new Bench();
+
+bench
     .add('JSON.parse', () => {
         JSON.parse(internals.text);
     })
@@ -29,19 +36,8 @@ suite
         try {
             JSON.parse(internals.text, internals.reviver);
         } catch (ignoreErr) {}
-    })
-    .on('cycle', (event) => {
-        console.log(String(event.target));
-    })
-    .on('complete', function () {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    .run({ async: true });
+    });
 
-internals.reviver = function (key, value) {
-    if (key === '__proto__') {
-        throw new Error('kaboom');
-    }
+await bench.run();
 
-    return value;
-};
+console.table(bench.table());
