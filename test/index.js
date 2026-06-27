@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import * as Bourne from '../lib/index.js';
+import * as Bourne from '../src/index.mjs';
 
 describe('Bourne', () => {
     describe('parse()', () => {
