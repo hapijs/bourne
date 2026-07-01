@@ -37,8 +37,8 @@
     "devDependencies": {
         "@hapi/oxc-plugin": "^1.0.1",
         "@vitest/coverage-v8": "^4.1.9",
-        "oxfmt": "^0.55.0",
-        "oxlint": "^1.70.0",
+        "oxfmt": "^0.57.0",
+        "oxlint": "^1.72.0",
         "tinybench": "6.0.2",
         "typescript": "^6.0.3",
         "vitest": "^4.1.9"
