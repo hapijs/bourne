@@ -19,11 +19,11 @@
         "README.md"
     ],
     "type": "module",
-    "types": "src/index.d.mts",
+    "types": "src/index.d.ts",
     "exports": {
         ".": {
-            "types": "./src/index.d.mts",
-            "default": "./src/index.mjs"
+            "types": "./src/index.d.ts",
+            "default": "./src/index.js"
         }
     },
     "scripts": {
