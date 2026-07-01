@@ -1,6 +1,6 @@
 {
     "name": "@hapi/bourne",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "JSON parse with prototype poisoning protection",
     "keywords": [
         "JSON",
