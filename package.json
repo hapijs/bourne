@@ -15,8 +15,7 @@
     },
     "files": [
         "src",
-        "API.md",
-        "README.md"
+        "API.md"
     ],
     "type": "module",
     "types": "src/index.d.ts",
