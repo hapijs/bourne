@@ -1,6 +1,6 @@
 import { Bench } from 'tinybench';
 
-import * as Bourne from '../src/index.mjs';
+import * as Bourne from '../src/index.js';
 
 const internals = {
     text: '{ "a": 5, "b": 6, "__proto__": { "x": 7 }, "c": { "d": 0, "e": "text", "__proto__": { "y": 8 }, "f": { "g": 2 } } }',

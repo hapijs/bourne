@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it } from 'vitest';
 
-import * as Bourne from '../src/index.mjs';
+import * as Bourne from '../src/index.js';
 
 describe('typings', () => {
     describe('parse', () => {
