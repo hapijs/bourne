@@ -91,6 +91,10 @@ describe('Bourne', () => {
             );
         });
 
+        it('ignores leading BOM', () => {
+            expect(Bourne.parse('\uFEFF{"a": 5, "b": 6}')).toEqual({ a: 5, b: 6 });
+        });
+
         it('errors on proto property (unicode)', () => {
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "\\u005f_proto__": { "x": 7 } }')).toThrow(SyntaxError);
             expect(() => Bourne.parse('{ "a": 5, "b": 6, "_\\u005fp\\u0072oto__": { "x": 7 } }')).toThrow(SyntaxError);
