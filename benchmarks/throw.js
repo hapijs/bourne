@@ -25,17 +25,17 @@ bench
     .add('JSON.parse error', () => {
         try {
             JSON.parse(internals.invalid);
-        } catch (ignoreErr) {}
+        } catch {}
     })
     .add('Bourne.parse', () => {
         try {
             Bourne.parse(internals.text);
-        } catch (ignoreErr) {}
+        } catch {}
     })
     .add('reviver', () => {
         try {
             JSON.parse(internals.text, internals.reviver);
-        } catch (ignoreErr) {}
+        } catch {}
     });
 
 await bench.run();
