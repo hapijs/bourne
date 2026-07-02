@@ -8,11 +8,6 @@ export function parse(text, ...args) {
     const reviver = args.length > 1 || !firstOptions ? args[0] : undefined;
     const options = (args.length > 1 && args[1]) || firstOptions || {};
 
-    // Strip a leading UTF-8 BOM
-    if (typeof text === 'string' && text.charCodeAt(0) === 0xfeff) {
-        text = text.slice(1);
-    }
-
     // Parse normally, allowing exceptions
 
     const obj = JSON.parse(text, reviver);
