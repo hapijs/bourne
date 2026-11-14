@@ -23,7 +23,16 @@ The problem is that `JSON.parse()` retains the `__proto__` property as a plain o
 itself, this is not a security issue. However, as soon as that object is assigned to another or
 iterated on and values copied, the `__proto__` property leaks and becomes the object's prototype.
 
-### `Bourne.parse(text, [reviver], [options])`
+### Usage
+
+```js
+import { parse, safeParse, scan } from '@hapi/bourne';
+
+// Or namespace import
+import * as Bourne from '@hapi/bourne';
+```
+
+### `parse(text, [reviver], [options])`
 
 Parses a given JSON-formatted text into an object where:
 
@@ -35,7 +44,7 @@ Parses a given JSON-formatted text into an object where:
         - `'remove'` - deletes any `__proto__` keys from the result object.
         - `'ignore'` - skips all validation (same as calling `JSON.parse()` directly).
 
-### `Bourne.scan(obj, [options])`
+### `scan(obj, [options])`
 
 Scans a given object for prototype properties where:
 
@@ -45,6 +54,6 @@ Scans a given object for prototype properties where:
         - `'error'` - throw a `SyntaxError` when a `__proto__` key is found. This is the default value.
         - `'remove'` - deletes any `__proto__` keys from the input `obj`.
 
-### `Bourne.safeParse(text, [reviver])`
+### `safeParse(text, [reviver])`
 
-Same as `Bourne.parse()` except that it returns `null` instead of throwing a `SyntaxError` when a `__proto__` key is found.
+Same as `parse()` except that it returns `null` instead of throwing a `SyntaxError` when a `__proto__` key is found.
